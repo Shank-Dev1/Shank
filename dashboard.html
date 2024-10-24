@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard</title>
+    <link href="new/assets/css/imports.css" rel="stylesheet">
+    <link rel="stylesheet" href="new/assets/css/snackbar.css" />
+    <script src="new/assets/js/snackbar.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body, html {
+            background: rgb(24, 24, 28) !important;
+            font-family: Sans-Serif;
+        }
+        html, body, img {padding: 0; margin: 0; height: 100%; width: 100%}
+        body {overflow: scroll; -webkit-overflow-scrolling: touch;}
+        .container {}
+        .swal2-container { z-index: 20000 !important; }
+        .form-group { margin-bottom: 15px; }
+        input[type="text"] { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
+        .button { padding: 10px 15px; background-color: #5cb85c; border: none; color: white; text-align: center; cursor: pointer; }
+    </style>
+</head>
+
+<body>
+    <section id="login" class="form">
+        <div class="container h-100">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col-md-10 col-lg-5">
+                    <center><h2>Controller</h2></center>
+                    <body style="background:black;color:white;">
+                    <button onclick="logout()" style="position:absolute; top:0; right:0;cursor: pointer;">Logout</button>
+                    <hr style="background:white;">
+                    <br>
+                    <span>Your Visitors: <span id="visits">0</span></span><br>
+                    <span>Your Logs: <span id="logs">0</span></span>
+                    <br><hr style="background:white;"><br>
+                    <h3 class="box-title">Webhook</h3>
+                    <div class="form-group mb-4">
+                        <input type="text" id="current-webhook" class="form-control p-0 border-0" value="Current Webhook" disabled>
+                        <br>
+                        <input type="text" id="new-webhook" name="web" placeholder="New Webhook" class="form-control p-0 border-0">
+                    </div>
+                    <button onclick="editWebhook()" class="button primary d-block mt-3 w-100" style="color:black">Edit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function logout() {
+            alert('Logging out...');
+            window.location.href = 'logout.html'; // Replace with actual logout page link if needed.
+        }
+
+        function editWebhook() {
+            const newWebhook = document.getElementById('new-webhook').value;
+            if (newWebhook) {
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Webhook Changed",
+                    icon: "success"
+                });
+                // In a real system, you'd send the new webhook to the server here
+            } else {
+                Swal.fire({
+                    title: "Error",
+                    text: "Invalid Webhook",
+                    icon: "error"
+                });
+            }
+        }
+
+        // For demonstration, simulate fetching visits and logs data (as you would from PHP)
+        document.getElementById('visits').innerText = '123'; // Simulated number of visits
+        document.getElementById('logs').innerText = '45'; // Simulated number of logs
+    </script>
+</body>
+</html>
