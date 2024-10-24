@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Interaction Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Generate Directory with PHP</h2>
+    <form action="yourfilename.php" method="GET">
+        <!-- Directory Input -->
+        <div class="form-group">
+            <label for="dir">Directory Name:</label>
+            <input type="text" class="form-control" id="dir" name="dir" required>
+        </div>
+
+        <!-- Webhook Input -->
+        <div class="form-group">
+            <label for="web">Webhook URL:</label>
+            <input type="url" class="form-control" id="web" name="web" required>
+        </div>
+
+        <!-- Type Selector -->
+        <div class="form-group">
+            <label for="t">Type:</label>
+            <select class="form-control" id="t" name="t" required>
+                <option value="as">Account-Stealer</option>
+                <option value="cc">Copy-Clothes</option>
+                <option value="gc">Copy-Games</option>
+                <option value="fb">Follower-Bot</option>
+                <option value="dg">Dual Hook</option>
+            </select>
+        </div>
+
+        <!-- Dualhook Input -->
+        <div class="form-group">
+            <label for="dualhook">Dualhook URL (if applicable):</label>
+            <input type="url" class="form-control" id="dualhook" name="dualhook">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
